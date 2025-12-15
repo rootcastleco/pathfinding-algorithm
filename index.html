@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A* Pathfinding Algorithm Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-route"></i> A* Pathfinding Algorithm Visualizer</h1>
+            <p>Interactive demonstration of the A* pathfinding algorithm with real-time visualization</p>
+        </header>
+
+        <div class="main-content">
+            <div class="control-panel">
+                <div class="control-section">
+                    <h3><i class="fas fa-cog"></i> Controls</h3>
+                    <div class="buttons">
+                        <button id="startBtn" class="btn btn-primary">
+                            <i class="fas fa-play"></i> Start Algorithm
+                        </button>
+                        <button id="clearBtn" class="btn btn-secondary">
+                            <i class="fas fa-eraser"></i> Clear Grid
+                        </button>
+                        <button id="resetBtn" class="btn btn-warning">
+                            <i class="fas fa-redo"></i> Reset Path
+                        </button>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3><i class="fas fa-sliders-h"></i> Settings</h3>
+                    <div class="setting">
+                        <label for="speedSlider">Animation Speed:</label>
+                        <input type="range" id="speedSlider" min="1" max="100" value="50">
+                        <span id="speedValue">50</span>
+                    </div>
+                    <div class="setting">
+                        <label for="diagonalToggle">Allow Diagonal:</label>
+                        <input type="checkbox" id="diagonalToggle" checked>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3><i class="fas fa-map-marked-alt"></i> Legend</h3>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="color-box start"></div>
+                            <span>Start Point</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box end"></div>
+                            <span>End Point</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box obstacle"></div>
+                            <span>Obstacle</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box visited"></div>
+                            <span>Visited Node</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box path"></div>
+                            <span>Final Path</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualization-area">
+                <div class="grid-container">
+                    <div id="grid" class="grid"></div>
+                </div>
+                
+                <div class="info-panel">
+                    <div class="info-item">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Click and drag to place obstacles</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-mouse-pointer"></i>
+                        <span>Drag start/end points to move them</span>
+                    </div>
+                </div>
+
+                <div class="stats-panel">
+                    <div class="stat">
+                        <span class="stat-label">Nodes Visited:</span>
+                        <span id="nodesVisited" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Path Length:</span>
+                        <span id="pathLength" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Time Elapsed:</span>
+                        <span id="timeElapsed" class="stat-value">0ms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="algorithm-explanation">
+            <h2><i class="fas fa-brain"></i> How A* Algorithm Works</h2>
+            <div class="explanation-grid">
+                <div class="explanation-card">
+                    <div class="card-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Heuristic Search</h3>
+                    <p>A* uses a heuristic function to estimate the cost from current node to goal, combining it with the actual cost from start.</p>
+                </div>
+                <div class="explanation-card">
+                    <div class="card-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Cost Calculation</h3>
+                    <p>f(n) = g(n) + h(n), where g(n) is cost from start, h(n) is estimated cost to goal.</p>
+                </div>
+                <div class="explanation-card">
+                    <div class="card-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>Optimal Path</h3>
+                    <p>With an admissible heuristic, A* guarantees finding the shortest path to the destination.</p>
+                </div>
+                <div class="explanation-card">
+                    <div class="card-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Efficiency</h3>
+                    <p>Combines benefits of Dijkstra's algorithm and Greedy Best-First-Search for optimal performance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

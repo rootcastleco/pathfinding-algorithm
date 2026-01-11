@@ -18,4 +18,4 @@ This project is a browser-based demonstration of the A* pathfinding algorithm. Y
 6. Use **Clear Grid** or **Reset Path** to try new scenarios.
 
 ## Credits
-Created by Batuhan AYRIBAS.
+Created by Batuhan AYRIBAS
